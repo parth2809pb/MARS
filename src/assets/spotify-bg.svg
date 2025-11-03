@@ -1,0 +1,8 @@
+<svg width="424" height="110" viewBox="0 0 424 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M54.9496 0.25H368.26C398.344 0.25 422.959 24.865 422.959 54.9496C422.959 85.0342 398.344 109.649 368.26 109.649H54.9496C24.865 109.649 0.25 85.0342 0.25 54.9496C0.25 24.865 24.865 0.25 54.9496 0.25Z" fill="black" stroke="black" stroke-width="0.5" stroke-miterlimit="2.6131"/>
+<!-- Music Note Icon -->
+<path d="M75 30C75 28.8954 75.8954 28 77 28H79C80.1046 28 81 28.8954 81 30V65C81 68.866 77.866 72 74 72C70.134 72 67 68.866 67 65C67 61.134 70.134 58 74 58C75.1046 58 76 58.8954 76 60V30H75Z" fill="white"/>
+<path d="M81 30L81 45L95 42V27L81 30Z" fill="white"/>
+<ellipse cx="74" cy="65" rx="7" ry="5" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M260.423 77.9512H347.431V80.0403H260.423V77.9512Z" fill="white"/>
+</svg>
