@@ -1,73 +1,159 @@
-# Welcome to your Lovable project
+# M.A.R.S. - Multi Agent Reasoning System
 
-## Project info
+A voice-powered AI assistant built with Gemini 2.0, featuring real-time voice conversations, function calling, and integrations with Spotify, weather, web search, and email.
 
-**URL**: https://lovable.dev/projects/f4b09bc6-9c37-4c10-8b37-45429808f3d1
+## Features
 
-## How can I edit this code?
+- 🎤 **Voice Conversations** - Real-time audio chat with Gemini 2.0
+- 🎵 **Spotify Control** - Play, pause, skip tracks with voice commands
+- 🌤️ **Weather Updates** - Get current weather information
+- 🔍 **Web Search** - Search the web through voice
+- 📧 **Email Sending** - Send emails via voice commands
+- 🎨 **Animated UI** - Ferro fluid visualization that reacts to audio
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Frontend**: React + TypeScript + Vite + Tailwind CSS
+- **Backend**: Node.js + Express
+- **AI**: Google Gemini 2.0 Flash (Multimodal Live API)
+- **Audio**: LiveKit for WebRTC
+- **Integrations**: Spotify Web API, OpenWeather API, Brave Search API
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f4b09bc6-9c37-4c10-8b37-45429808f3d1) and start prompting.
+## Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js 18+
+- Gemini API key ([Get it here](https://aistudio.google.com/app/apikey))
+- LiveKit account ([Sign up](https://livekit.io))
+- Spotify Developer account (optional)
+- OpenWeather API key (optional)
+- Brave Search API key (optional)
 
-**Use your preferred IDE**
+## Local Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 1. Clone the repository
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+git clone https://github.com/parth2809pb/MARS.git
+cd MARS
+```
 
-Follow these steps:
+### 2. Install dependencies
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+npm install
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 3. Set up environment variables
 
-# Step 3: Install the necessary dependencies.
-npm i
+Create `.env` in the root directory:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```env
+VITE_GEMINI_API_KEY=your_gemini_api_key
+VITE_LIVEKIT_URL=your_livekit_url
+VITE_SERVER_URL=http://localhost:3000
+VITE_SPOTIFY_CLIENT_ID=your_spotify_client_id
+```
+
+Create `server/.env`:
+
+```env
+LIVEKIT_API_KEY=your_livekit_api_key
+LIVEKIT_API_SECRET=your_livekit_api_secret
+SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+PORT=3000
+```
+
+### 4. Start the backend server
+
+```bash
+cd server
+node index.js
+```
+
+### 5. Start the frontend (in a new terminal)
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### 6. Open the app
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Visit `http://localhost:5173` and complete the onboarding to add your API keys.
 
-**Use GitHub Codespaces**
+## Deploy to Vercel
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 1. Push to GitHub
 
-## What technologies are used for this project?
+```bash
+git add .
+git commit -m "Initial commit"
+git push origin main
+```
 
-This project is built with:
+### 2. Deploy on Vercel
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click **"Add New Project"**
+3. Import your repository
+4. Add environment variables:
+   - `VITE_GEMINI_API_KEY`
+   - `VITE_LIVEKIT_URL`
+   - `LIVEKIT_API_KEY`
+   - `LIVEKIT_API_SECRET`
+   - `VITE_SPOTIFY_CLIENT_ID`
+   - `SPOTIFY_CLIENT_SECRET`
+   - `VITE_SERVER_URL` (use your Vercel URL: `https://your-app.vercel.app`)
+5. Click **"Deploy"**
 
-## How can I deploy this project?
+### 3. Update Spotify Redirect URI
 
-Simply open [Lovable](https://lovable.dev/projects/f4b09bc6-9c37-4c10-8b37-45429808f3d1) and click on Share -> Publish.
+If using Spotify integration:
+1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+2. Edit your app
+3. Add redirect URI: `https://your-app.vercel.app/settings`
 
-## Can I connect a custom domain to my Lovable project?
+## Configuration
 
-Yes, you can!
+After deployment, visit the Settings page to configure:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- **Gemini API Key** - Required for AI conversations
+- **LiveKit Credentials** - Required for voice chat
+- **Weather API Key** - Optional, for weather features
+- **Spotify** - Optional, connect for music control
+- **SMTP Settings** - Optional, for email sending
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Usage
+
+1. Click **"Start Conversation"**
+2. Allow microphone access
+3. Speak naturally to M.A.R.S.
+
+### Example Commands
+
+- "What's the weather like?"
+- "Play some music on Spotify"
+- "Search for the latest news"
+- "What's playing right now?"
+- "Pause the music"
+
+## Project Structure
+
+```
+MARS/
+├── src/
+│   ├── components/     # UI components
+│   ├── pages/          # App pages
+│   ├── services/       # API services (Gemini, LiveKit)
+│   ├── tools/          # Function calling tools
+│   └── state/          # State management
+├── server/             # Backend Express server
+└── public/             # Static assets
+```
+
+## License
+
+MIT
+
+## Support
+
+For issues or questions, please open an issue on GitHub.
